@@ -36,4 +36,12 @@ public class PersonController(IRepository repository) : ControllerBase
 
         return NotFound();
     }
+
+    [HttpPost("{id}/description-model")]
+    public ActionResult<Person> PostModel(
+        [FromBody] Person person)
+    {
+        repository.UpdatePerson(person);
+        return Ok(person);
+    }
 }
