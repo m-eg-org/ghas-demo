@@ -21,7 +21,7 @@ public class PersonController(IRepository repository) : ControllerBase
     }
 
     [HttpPost("{id}/description")]
-    public ActionResult<Person> Post(
+    public ActionResult<Person> UpdateDescription(
         string id,
         [FromBody] string description)
     {
@@ -37,8 +37,8 @@ public class PersonController(IRepository repository) : ControllerBase
         return NotFound();
     }
 
-    [HttpPost("{id}/description-model")]
-    public ActionResult<Person> PostModel(
+    [HttpPost("{id}")]
+    public ActionResult<Person> UpdatePerson(
         [FromBody] Person person)
     {
         repository.UpdatePerson(person);
