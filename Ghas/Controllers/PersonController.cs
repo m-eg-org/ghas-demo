@@ -31,17 +31,28 @@ public class PersonController(IRepository repository) : ControllerBase
         {
             person.Description = description;
             repository.UpdatePerson(person);
+            
             return Ok(person);
         }
 
         return NotFound();
     }
 
-    [HttpPost("{id}")]
+    [HttpPut("{id}")]
     public ActionResult<Person> UpdatePerson(
         [FromBody] Person person)
     {
         repository.UpdatePerson(person);
+        
+        return Ok(person);
+    }
+
+    [HttpPost("")]
+    public ActionResult<Person> AddPerson(
+        [FromBody] Person person)
+    {
+        repository.AddPerson(person);
+        
         return Ok(person);
     }
 }
