@@ -18,7 +18,7 @@ public class HelloController(ILogger<HelloController> logger) : ControllerBase
     [HttpGet("image")]
     public IActionResult GetImage(int w = 100, int h = 100)
     {
-        var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "image.png");
+        var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "image.png");       
 
         // Resize image with ImageSharp
         using var image = Image.Load(path);
